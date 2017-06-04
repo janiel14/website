@@ -88,6 +88,7 @@ gulp.task('copy:fonts', function() {
 gulp.task('dev', function(callback) {
     runSequence('clear',
                 ['copy:html', 'copy:images', 'copy:fonts', 'styles:dev', 'js:dev'],
+                'inline:html',
                 callback);
 });
 

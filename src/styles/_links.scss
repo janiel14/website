@@ -1,0 +1,85 @@
+.links {
+    box-sizing: border-box;
+    padding: 15px;
+
+    .links__title {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        will-change: transform;
+        animation-name: linksFadeIn;
+        animation-duration: 1s;
+        animation-delay: 1.5s;
+        animation-fill-mode: both;
+    }
+
+    .links__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .links__button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        transition: transform .3s ease-in-out,
+                    box-shadow .3s ease-in-out;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, .3);
+        border-radius: 100%;
+        background-color: #E91E63;
+        will-change: transform;
+        animation: linksFadeIn;
+        animation-delay: 2s;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        color: #FFF;
+        overflow: hidden;
+
+        &.links__button--github {
+            background-color: #9C27B0;
+            animation-delay: 2s;
+        }
+
+        &.links__button--twitter {
+            background-color: #2196F3;
+            animation-delay: 2.5s;
+        }
+
+        &.links__button--linkedin {
+            background-color: #673AB7;
+            animation-delay: 3s;
+        }
+
+        &.links__button--email {
+            background-color: #F44336;
+            animation-delay: 3.5s;
+        }
+
+        svg {
+            width: 30px;
+            fill: currentColor;
+        }
+    }
+}
+
+@keyframes linksFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
