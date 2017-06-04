@@ -11,7 +11,8 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-var inlinesource = require('gulp-inline-source')
+var inlinesource = require('gulp-inline-source');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task('serve', serve('dist'));
 
@@ -95,11 +96,12 @@ gulp.task('dev', function(callback) {
 gulp.task('inline:html', function() {
     return gulp.src('./dist/index.html')
         .pipe(inlinesource())
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('inline:delete-assets', function() {
-    return del(['./dist/scripts', './dist/styles']);
+    return del(['./dist/scripts', './dist/styles', './dist/images/**/*.svg']);
 });
 
 gulp.task('dist', function(callback) {
