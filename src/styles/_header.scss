@@ -11,6 +11,12 @@
 
         .header__content__text {
             cursor: default;
+            will-change: transform;
+            opacity: 0px;
+            transform: translateX(-15%);
+            animation: headerContentTextFadeInFromLeft;
+            animation-duration: 1s;
+            animation-fill-mode: both;
 
             &.header__content__text--text-1,
             &.header__content__text--text-3 {
@@ -37,6 +43,7 @@
 
             &.header__content__text--text-2 {
                 font-size: 22px;
+                animation-delay: .5s;
 
                 @media (min-width: 400px) {
                     font-size: 30px;
@@ -53,11 +60,24 @@
 
             &.header__content__text--text-3 {
                 text-align: right;
+                animation-delay: 1s;
             }
 
             .header__content__text--highlight {
                 color: #E91E63;
             }
         }
+    }
+}
+
+@keyframes headerContentTextFadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-15%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
     }
 }
